@@ -1,4 +1,5 @@
 const { ApolloServer } = require('apollo-server-express');
+
 const inventoryTypeDefs = require('./schemas/inventorySchema');
 const inventoryResolvers = require('./resolvers/inventoryResolver');
 const shipmentTypeDefs = require('./schemas/shipmentSchema');

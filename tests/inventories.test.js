@@ -79,7 +79,7 @@ describe('Invenory Test suite', () => {
       };
     jwtStub.returns(payload);
     createInvenoryStub.resolves(fakeInventoryItem);
-    const token =  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM";
+    const token =  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM";
     
     const response = await request(app)
       .post('/graphql')
@@ -151,7 +151,7 @@ describe('Invenory Test suite', () => {
       };
     jwtStub.returns(payload);
     findOneAndUpdateStub.resolves(fakeInventoryItem);
-    const token =  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM";
+    const token =  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM";
 
     const response = await request(app)
       .post('/graphql')
@@ -201,7 +201,7 @@ describe('Invenory Test suite', () => {
     });
   });
   it('should delete an existing inventory item and return a success message', async () => {
-    const token =  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM";
+    const token =  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM";
     const payload = {
         "id": "6661c58abd942a2da55cd3ed",
         "email": "v1j@gmail.com",
@@ -258,7 +258,7 @@ describe('Invenory Test suite', () => {
         },
       },
     ];
-    const token =  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM";
+    const token =  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM";
 
     findStub.returns({
       skip: sinon.stub().returns({
@@ -343,7 +343,7 @@ describe('Invenory Test suite', () => {
           emailAddress: 'jane.doe@alphawholesale.com',
         },
       };
-    const token =  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM";
+    const token =  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM";
 
     findOneStub.returns({
           populate: sinon.stub().resolves(fakeInventoryItem)

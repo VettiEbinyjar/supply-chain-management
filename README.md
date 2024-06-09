@@ -48,7 +48,12 @@ To start the server, run:
 ```bash
 npm start
 ```
+The server will be running at `http://localhost:4000`.
+playground link : `https://studio.apollographql.com/sandbox/explorer`
 
+``` bash
+      please set headers Authorization with Bearer token when requesting other than register and login operations
+```
 ### Project structure
 ```
 supply-chain-management/
@@ -96,9 +101,6 @@ supply-chain-management/
 ├── .env
 └── README.md
 ```
-
-
-The server will be running at `http://localhost:4000`.
 
 
 ## API Documentation

@@ -1,0 +1,716 @@
+{
+	"info": {
+		"_postman_id": "448f9b19-15bf-48e4-af9b-2baff72d4033",
+		"name": "supply_management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation Register($username: String!, $email: String!, $password: String!, $confirmPassword: String!) {\r\n  register(username: $username, email: $email, password: $password, confirmPassword: $confirmPassword) {\r\n    username\r\n    token\r\n    id\r\n    email\r\n  }\r\n}",
+								"variables": " {\r\n    \"username\": \"janedoe456\",\r\n    \"email\": \"janedoe45617@example.com\",\r\n    \"password\": \"S3cur3P@ss!\",\r\n    \"confirmPassword\": \"S3cur3P@ss!\"\r\n  }"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation Login($email: String!, $password: String!) {\r\n  login(email: $email, password: $password) {\r\n    email,\r\n    token,\r\n    id,\r\n    username\r\n  }\r\n}",
+								"variables": "{\r\n    \"email\": \"janedoe456@example.com\",\r\n    \"password\": \"S3cur3P@ss!\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query Me {\r\n  me {\r\n    id\r\n    username\r\n    email\r\n    token\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "suppliers",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation AddSupplier($supplierName: String!, $contactPerson: String!, $phoneNumber: String!, $emailAddress: String!) {\r\n  addSupplier(supplierName: $supplierName, contactPerson: $contactPerson, phoneNumber: $phoneNumber, emailAddress: $emailAddress) {\r\n    id,\r\n    supplierName,\r\n    contactPerson,\r\n    phoneNumber,\r\n    emailAddress\r\n  }\r\n}",
+								"variables": "    {\r\n      \"supplierName\": \"Alpha Wholesale\",\r\n      \"contactPerson\": \"Jane Doe\",\r\n      \"phoneNumber\": \"+1-800-555-5678\",\r\n      \"emailAddress\": \"jane.doe@alphawholesale.com\"\r\n    \r\n  }"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetSuppliers {\r\n  getSuppliers {\r\n  id,\r\n  supplierName,\r\n  contactPerson,\r\n  emailAddress,\r\n  }\r\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetSupplierById($getSupplierByIdId: ID!) {\r\n  getSupplierById(id: $getSupplierByIdId) {\r\n  id,\r\n  contactPerson,\r\n  emailAddress,\r\n  phoneNumber,\r\n  supplierName  \r\n  }\r\n}",
+								"variables": "{\r\n  \"getSupplierByIdId\": \"6662fde4fa1138c5e90d954a\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation UpdateSupplier($updateSupplierId: ID!, $supplierName: String, $contactPerson: String, $phoneNumber: String, $emailAddress: String) {\r\n  updateSupplier(id: $updateSupplierId, supplierName: $supplierName, contactPerson: $contactPerson, phoneNumber: $phoneNumber, emailAddress: $emailAddress) {\r\n    id,\r\n    supplierName,\r\n    contactPerson,\r\n    phoneNumber,\r\n    emailAddress\r\n  }\r\n}",
+								"variables": "{\r\n  \"updateSupplierId\": \"6662fde4fa1138c5e90d954a\",\r\n    \"supplierName\" : \"Global Supplies Ltd.\",\r\n    \"contactPerson\" : \"John Smith\",\r\n    \"phoneNumber\" : \"+1-800-555-1234\",\r\n    \"emailAddress\" : \"john.smith@globalsupplies.com\"  \r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation DeleteSupplier($deleteSupplierId: ID!) {\r\n  deleteSupplier(id: $deleteSupplierId)}\r\n\r\n",
+								"variables": "{\r\n  \"deleteSupplierId\": \"666301015c150b6077e5f988\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "inventory",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation AddInventoryItem($itemName: String!, $sku: String!, $quantity: Int!, $warehouseLocation: String!, $supplierId: ID!) {\r\n  addInventoryItem(itemName: $itemName, sku: $sku, quantity: $quantity, warehouseLocation: $warehouseLocation, supplierId: $supplierId) {\r\n    id\r\n    itemName\r\n    sku\r\n    quantity\r\n    warehouseLocation\r\n    supplier {\r\n      id,\r\n      contactPerson,\r\n      emailAddress,\r\n      phoneNumber,\r\n      supplierName\r\n    }\r\n  }\r\n}",
+								"variables": "    {\r\n      \"itemName\": \"Wireless Mouse\",\r\n      \"sku\": \"WM-12345\",\r\n      \"quantity\": 150,\r\n      \"warehouseLocation\": \"A1-01\",\r\n      \"supplierId\": \"666302fafe4da709444a5373\"\r\n    }"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation UpdateInventoryItem($updateInventoryItemId: ID!, $itemName: String, $sku: String, $quantity: Int, $warehouseLocation: String, $supplierId: ID) {\r\n  updateInventoryItem(id: $updateInventoryItemId, itemName: $itemName, sku: $sku, quantity: $quantity, warehouseLocation: $warehouseLocation, supplierId: $supplierId) {\r\n    id\r\n    itemName\r\n    sku\r\n    quantity\r\n    warehouseLocation\r\n    supplier {\r\n      id,\r\n      contactPerson,\r\n      emailAddress,\r\n      phoneNumber,\r\n      supplierName\r\n    }\r\n  }\r\n}",
+								"variables": "{\r\n    \"itemName\": \"Wireless Mouse\",\r\n    \"sku\": \"WM-12345\",\r\n    \"quantity\": 150,\r\n    \"warehouseLocation\": \"A1-01\",\r\n    \"supplierId\": \"666302fafe4da709444a5373\",\r\n    \"updateInventoryItemId\": \"66630ac577e531b2b8ca8977\"\r\n  }"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetInventory($getInventoryId: String) {\r\n  getInventory(id: $getInventoryId) {\r\n    id,\r\n    itemName,\r\n    quantity,\r\n    sku,\r\n    warehouseLocation\r\n    supplier {\r\n      contactPerson,\r\n      emailAddress,\r\n      id,\r\n      phoneNumber,\r\n      supplierName\r\n    }\r\n  }\r\n}",
+								"variables": "{\r\n  \"getInventoryId\": \"66630ac577e531b2b8ca8977\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetInventoryItems($page: Int, $limit: Int) {\r\n  getInventoryItems(page: $page, limit: $limit) {\r\n    id\r\n    itemName\r\n    sku\r\n    quantity\r\n    warehouseLocation\r\n    supplier {\r\n     id,contactPerson\r\n      phoneNumber\r\n      supplierName\r\n      emailAddress\r\n    }\r\n  }\r\n}",
+								"variables": "{\r\n  \"page\": 1,\r\n  \"limit\": 10\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjFjNThhYmQ5NDJhMmRhNTVjZDNlZCIsImVtYWlsIjoidjFqQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoidmV0dGkxaiIsImlhdCI6MTcxNzY4MzU5NCwiZXhwIjoxNzE3NzY5OTk0fQ.P1D4UW5kKLrSXK5t9b_IflWmEexxHL6E6SikRTo8TYM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation DeleteInventoryItem($deleteInventoryItemId: ID!) {\r\n  deleteInventoryItem(id: $deleteInventoryItemId)\r\n}",
+								"variables": "{\r\n  \"deleteInventoryItemId\": \"6663144ce821c6c2a894ad37\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "shipment",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzk2NDc4MywiZXhwIjoxNzE4MDUxMTgzfQ.rg8UJqUdqs67WR4SYTyOO3wK40HcmyBAYBQqvHXfSjU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation AddShipment($origin: String!, $destination: String!, $status: String!, $estimatedDeliveryDate: String!, $inventoryItemIds: [ID!]) {\r\n  addShipment(origin: $origin, destination: $destination, status: $status, estimatedDeliveryDate: $estimatedDeliveryDate, inventoryItemIds: $inventoryItemIds) {\r\n    id\r\n    origin\r\n    destination\r\n    status\r\n    estimatedDeliveryDate\r\n    inventoryItems {\r\n      id,\r\n      itemName\r\n    }\r\n  }\r\n}",
+								"variables": "{\r\n    \"origin\": \"New York, NY\",\r\n    \"destination\": \"Los Angeles, CA\",\r\n    \"status\": \"In Transit\",\r\n    \"estimatedDeliveryDate\": \"2024-06-15\",\r\n    \"inventoryItemIds\": [\"6663037889cd78fe1fb5c925\", \"6663039d89cd78fe1fb5c927\"]\r\n  }"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc3MDYzMiwiZXhwIjoxNzE3ODU3MDMyfQ.mVmtaL_xyBarlyrVyTQniia2D59GeuwV61No_THS8Q0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation UpdateShipment($updateShipmentId: ID!, $status: String!) {\r\n  updateShipment(id: $updateShipmentId, status: $status) {\r\n    id\r\n    origin\r\n    destination\r\n    status\r\n    estimatedDeliveryDate\r\n    inventoryItems {\r\n      id,\r\n      itemName\r\n    }\r\n  }\r\n}",
+								"variables": "{  \"updateShipmentId\": \"6663246080f32888e83bc539\",\r\n  \"status\": \"Delay\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOne",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc3MDYzMiwiZXhwIjoxNzE3ODU3MDMyfQ.mVmtaL_xyBarlyrVyTQniia2D59GeuwV61No_THS8Q0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetShipmentById($getShipmentByIdId: ID!) {\r\n  getShipmentById(id: $getShipmentByIdId) {\r\n    id\r\n    origin\r\n    destination\r\n    status\r\n    estimatedDeliveryDate\r\n    inventoryItems {\r\n     id,\r\n     itemName \r\n    }\r\n  }\r\n}",
+								"variables": "{\r\n  \"getShipmentByIdId\": \"66631ed30b6673b4752bb4bc\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc2MzQwNCwiZXhwIjoxNzE3ODQ5ODA0fQ.VuXf-w1er3oXl1kKzTT3AXSmpxp3q8atrtNQpKrfow4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NjJmYjdlNWQ5MWUyNGQ1Mjc1NzE5MSIsImVtYWlsIjoiamFuZWRvZTQ1NkBleGFtcGxlLmNvbSIsInVzZXJuYW1lIjoiamFuZWRvZTQ1NiIsImlhdCI6MTcxNzc3Mjk5NywiZXhwIjoxNzE3ODU5Mzk3fQ.m09G67Hg9ninNI4umnMapD0xMeiFQRaechJaO8RggV0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetShipments($page: Int, $limit: Int) {\r\n  getShipments(page: $page, limit: $limit) {\r\n    id\r\n    origin\r\n    destination\r\n    status\r\n    estimatedDeliveryDate\r\n    inventoryItems {\r\n     id,\r\n     itemName \r\n    }\r\n  }\r\n}",
+								"variables": "{\r\n  \"page\": 1,\r\n  \"limit\": 10\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

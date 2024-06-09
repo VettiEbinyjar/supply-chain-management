@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 const Shipment = require('../models/shipment');
-const Inventory = require('../models/Inventory');
-const User = require('../models/user');
 const { authenticate } = require('../middleware/auth');
 
 module.exports = {

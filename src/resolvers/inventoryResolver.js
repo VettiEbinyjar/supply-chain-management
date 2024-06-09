@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 const Inventory = require('../models/Inventory');
-const Supplier = require('../models/Supplier');
-const User = require('../models/user');
 const {authenticate} = require('../middleware/auth');
 const { ApolloError } = require('apollo-server-express');
 

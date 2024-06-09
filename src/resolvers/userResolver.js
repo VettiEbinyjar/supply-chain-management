@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 const { ApolloError } = require('apollo-server-express');
-const jwt = require('jsonwebtoken');
-const shortid = require('shortid');
 const User = require('../models/user');
 const {authenticate} = require('../middleware/auth');
-const {generateToken, verifyToken} = require('../helpers/jwtHandler');
+const {generateToken} = require('../helpers/jwtHandler');
 
 const resolvers = {
   Query: {
