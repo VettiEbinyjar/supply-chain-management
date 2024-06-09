@@ -124,13 +124,13 @@ const supplier = [
     }
   ]
   
-const suppliers = [
+const inventoryItem = [
     {
       "itemName": "Wireless Mouse",
       "sku": "WM-12345",
       "quantity": 150,
       "warehouseLocation": "A1-01",
-      "supplierId": "SUP-001"
+      "supplierId": "make sure to give valid object Id of supplier"
     },
     {
       "itemName": "Mechanical Keyboard",
@@ -196,4 +196,109 @@ const suppliers = [
       "supplierId": "SUP-010"
     }
   ]
+
+const shipmentData = [
+  {
+    origin: "New York",
+    destination: "Los Angeles",
+    status: "In transit",
+    estimatedDeliveryDate: "2024-06-15",
+    inventoryItems: [
+      "make sure to give valid inventory objectId",
+      "60c42f5b8b918e001fef3c6b"
+    ]
+  },
+  {
+    origin: "London",
+    destination: "Paris",
+    status: "Delivered",
+    estimatedDeliveryDate: "2024-06-10",
+    inventoryItems: [
+      "60c42f5b8b918e001fef3c6c",
+      "60c42f5b8b918e001fef3c6d"
+    ]
+  },
+  {
+    origin: "Tokyo",
+    destination: "Seoul",
+    status: "In transit",
+    estimatedDeliveryDate: "2024-06-20",
+    inventoryItems: [
+      "60c42f5b8b918e001fef3c6e",
+      "60c42f5b8b918e001fef3c6f"
+    ]
+  },
+  {
+    origin: "Sydney",
+    destination: "Melbourne",
+    status: "Delayed",
+    estimatedDeliveryDate: "2024-06-12",
+    inventoryItems: [
+      "60c42f5b8b918e001fef3c70",
+      "60c42f5b8b918e001fef3c71"
+    ]
+  },
+  {
+    origin: "Berlin",
+    destination: "Madrid",
+    status: "Delivered",
+    estimatedDeliveryDate: "2024-06-08",
+    inventoryItems: [
+      "60c42f5b8b918e001fef3c72",
+      "60c42f5b8b918e001fef3c73"
+    ]
+  },
+  {
+    origin: "Rome",
+    destination: "Athens",
+    status: "In transit",
+    estimatedDeliveryDate: "2024-06-18",
+    inventoryItems: [
+      "60c42f5b8b918e001fef3c74",
+      "60c42f5b8b918e001fef3c75"
+    ]
+  },
+  {
+    origin: "Moscow",
+    destination: "Saint Petersburg",
+    status: "In transit",
+    estimatedDeliveryDate: "2024-06-17",
+    inventoryItems: [
+      "60c42f5b8b918e001fef3c76",
+      "60c42f5b8b918e001fef3c77"
+    ]
+  },
+  {
+    origin: "Beijing",
+    destination: "Shanghai",
+    status: "Delayed",
+    estimatedDeliveryDate: "2024-06-11",
+    inventoryItems: [
+      "60c42f5b8b918e001fef3c78",
+      "60c42f5b8b918e001fef3c79"
+    ]
+  },
+  {
+    origin: "Dubai",
+    destination: "Doha",
+    status: "In transit",
+    estimatedDeliveryDate: "2024-06-16",
+    inventoryItems: [
+      "60c42f5b8b918e001fef3c7a",
+      "60c42f5b8b918e001fef3c7b"
+    ]
+  },
+  {
+    origin: "Toronto",
+    destination: "Vancouver",
+    status: "Delivered",
+    estimatedDeliveryDate: "2024-06-09",
+    inventoryItems: [
+      "60c42f5b8b918e001fef3c7c",
+      "60c42f5b8b918e001fef3c7d"
+    ]
+  }
+];
+  
+  console.log(testData);
   
