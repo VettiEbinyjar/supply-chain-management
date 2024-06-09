@@ -48,7 +48,7 @@ To start the server, run:
 ```bash
 npm start
 ```
-The server will be running at `http://localhost:4000`.
+The server will be running at `http://localhost:4000/graphql`.
 graphql playground link interact with operatons: `https://studio.apollographql.com/sandbox/explorer`
 
 ``` bash
