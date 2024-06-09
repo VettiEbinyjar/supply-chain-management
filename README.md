@@ -49,7 +49,7 @@ To start the server, run:
 npm start
 ```
 The server will be running at `http://localhost:4000`.
-playground link : `https://studio.apollographql.com/sandbox/explorer`
+graphql playground link interact with operatons: `https://studio.apollographql.com/sandbox/explorer`
 
 ``` bash
       please set headers Authorization with Bearer token when requesting other than register and login operations
